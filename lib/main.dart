@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:pizza_time/pages/menu.dart';
+import 'package:pizza_time/pages/pizza_market.dart';
+import 'package:pizza_time/pages/add_pizza.dart';
 
-void main() => runApp(const MaterialApp(
-  home: Menu(),
+void main() => runApp(MaterialApp(
+  theme: ThemeData(
+    scaffoldBackgroundColor: Colors.white,
+  ),
+  initialRoute: '/',
+  routes: {
+    '/': (context) => PizzaMarket(),
+    '/add': (context) => AddPizza(),
+  },
 ));
-
-//https://cdn.dodostatic.net/static/Img/Products/57157f013c164840a24c1d49c7adb3b6_292x292.jpeg
