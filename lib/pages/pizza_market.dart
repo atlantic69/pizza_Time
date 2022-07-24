@@ -17,7 +17,7 @@ class _PizzaMarket extends State<PizzaMarket> {
   void initState() {
     super.initState();
     menu.addAll(['Aloha', 'Four season', 'Don Beacon']);
-    price.addAll([8, 10, 6]);
+    price.addAll(['8', '10', '6']);
   }
 
   @override
@@ -44,6 +44,7 @@ class _PizzaMarket extends State<PizzaMarket> {
             child: Text('Pizza Market', style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
+              fontSize: 22,
             ),),
           ),
 
@@ -64,9 +65,103 @@ class _PizzaMarket extends State<PizzaMarket> {
         itemBuilder: (BuildContext context, int index) {
           return Card(
             elevation: 30,
+            shadowColor: const Color.fromARGB(40, 70, 70, 250),
+            margin: const EdgeInsets.all(15),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SizedBox(
+              height: 70,
+              child: Center(
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      flex: 9,
+                      child: Column (
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ListTile(
+                            leading: const Image (
+                              image: AssetImage('assets/pizza.jpeg'),
+                            ),
+                            title: Text(menu[index],
+                              style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18,
+                              ),),
+                            trailing: const Icon(
+                              Icons.attach_money,
+                              color: Colors.pinkAccent,
+                              size: 30,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(price[index],
+                            style: const TextStyle(
+                              color: Colors.pinkAccent,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22,
+                            ),),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+                /*Column(
+                  children: [
+                    Text(price[index],
+                      style: const TextStyle(
+                          color: Colors.pinkAccent,
+                      ),),
+                  ],
+                ),*/
+
+/*
+                    SizedBox (
+                      height: 70,
+                      child: Center (
+                        child: ListTile(
+                          leading: const Image (
+                            image: AssetImage('assets/pizza.jpeg'),
+                          ),
+                          title: Text(menu[index],
+                            style: const TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),),
+                          trailing: const Icon(
+                            Icons.attach_money,
+                            color: Colors.pinkAccent,
+                          ),
+                        ),
+                      ),
+                    ),
+ */
+
+/*
+          return Card(
+            elevation: 30,
             shadowColor: Color.fromARGB(40, 70, 70, 250),
             margin: EdgeInsets.all(15),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+            ),
             child: SizedBox (
               height: 70,
               child: Center (
@@ -88,8 +183,4 @@ class _PizzaMarket extends State<PizzaMarket> {
               ),
             ),
           );
-        },
-      ),
-    );
-  }
-}
+ */

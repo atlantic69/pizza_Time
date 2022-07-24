@@ -44,6 +44,7 @@ class _AddPizzaState extends State<AddPizza> {
             child: Text('Add pizza', style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
+              fontSize: 22,
             ),),
           ),
         ),
@@ -52,108 +53,102 @@ class _AddPizzaState extends State<AddPizza> {
       body: Stack(
         children: [
           ListView.builder(
-            shrinkWrap: true,
-            itemCount: 1,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                elevation: 30,
-                shadowColor: Color.fromARGB(40, 70, 70, 250),
-                margin: EdgeInsets.all(15),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                child: const SizedBox (
-                  height: 200,
-                  child: Center(
-                    child: ListTile(
-                      leading: Image(
-                        image: AssetImage('assets/pizza.jpeg'),
-                      ),
-                      title: Text('Name', style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),),
-                    ),
+              shrinkWrap: true,
+              itemCount: 1,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  elevation: 30,
+                  shadowColor: const Color.fromARGB(50, 70, 70, 250),
+                  margin: const EdgeInsets.all(15),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
                   ),
-                ),
-              );
-            }
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: const EdgeInsets.all(15),
-              width: double.infinity,
-              height: 60,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.pinkAccent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                ),
-                child: Text('Save', style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),),
-                onPressed: () {},
-              ),
-            ),
-          )
-        ],
-      ),
-
-      /*
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: <Widget>[
-              Expanded(
-                child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: 1,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      elevation: 30,
-                      shadowColor: Color.fromARGB(35, 70, 70, 250),
-                      margin: EdgeInsets.all(15),
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                      child: const SizedBox (
-                        height: 200,
-                        child: Center (
-                          child: ListTile(
-                            leading: Image (
-                              image: AssetImage('assets/pizza.jpeg'),
+                  child: SizedBox(
+                    height: 200,
+                    child: Center(
+                      child: Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 2,
+                            child: Column (
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: const [
+                                SizedBox(
+                                  height: 90,
+                                  width: 90,
+                                  child: Image(
+                                    image: AssetImage('assets/pizza.jpeg'),
+                                  ),
+                                ),
+                              ],
                             ),
-                            title: Text('Name', style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),),
                           ),
-                        ),
+                          Expanded(
+                            flex: 3,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                const Text('Name',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5, right: 60, bottom: 20),
+                                  child: SizedBox(
+                                    height: 34,
+                                    child: TextField(
+                                      textAlignVertical: TextAlignVertical.top,
+                                      decoration: InputDecoration(
+                                        border: const OutlineInputBorder(),
+                                        suffixIcon: IconButton(
+                                          icon: const Icon(Icons.clear),
+                                          iconSize: 20,
+                                          onPressed: () {
+
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const Text('Price',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),),
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 5, right: 60),
+                                  child: SizedBox(
+                                    height: 34,
+                                    child: TextField(
+                                      textAlignVertical: TextAlignVertical.top,
+                                      decoration: InputDecoration(
+                                        border: const OutlineInputBorder(),
+                                        suffixIcon: IconButton(
+                                          icon: const Icon(Icons.clear),
+                                          iconSize: 20,
+                                          onPressed: () {
+
+                                          },
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
-                    );
-                  }
-                ),
-              ),
-            ],
-          ),
-          Row (
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle (
-                  backgroundColor: MaterialStateProperty.all(Colors.pinkAccent),
-                  fixedSize: MaterialStateProperty.all(const Size(360, 60)),
-                  shape: MaterialStateProperty.all(
-                    RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
                     ),
                   ),
-                ),
-                child: Text('Save'),
-                onPressed: () {},
-              ),
-            ],
-          )
+                );
+              }
+          ),
         ],
       ),
-      */
     );
   }
 }
