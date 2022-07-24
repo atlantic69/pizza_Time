@@ -1,16 +1,21 @@
 # pizza_time
+Задание было выполнено за 3 дня и это первый опыт в мобильной разработке.
+Результат отличается от задуманного и проект требует доработок,
+но у меня есть БОЛЬШОЕ желание обучаться и создавать качественные продукты.
 
-A new Flutter project.
+# Задание
+Необходимо создать приложение для заказа пиццы с админкой.
+* На основном экране находятся все пиццы. По нажатию на плюсик переходим на экран добавления новой пиццы;
+* На второй странице есть возможность добавления пиццы с указанием названия и цены;
+* Иконка пиццы всегда одинаковая (можно использовать любую ссылку на изображение, можно добавить в ассеты);
+* Можно не делать тени и градиенты.
 
-## Getting Started
+# Обязательные требования:
+* Приложение должно быть написано на Flutter*.
 
-This project is a starting point for a Flutter application.
+# Дополнительные требования:
+* UI приложения соответствует дизайну;
+* Сделаны тени и градиенты.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Дизайн:
+https://www.figma.com/file/Seh6i98BtcaaOLaB7dSnrR/Untitled?node-id=0%3A1

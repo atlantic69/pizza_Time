@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_time/pages/pizza_market.dart';
 
 class AddPizza extends StatefulWidget {
   const AddPizza({Key? key}) : super(key: key);
@@ -8,7 +9,16 @@ class AddPizza extends StatefulWidget {
 }
 
 class _AddPizzaState extends State<AddPizza> {
+
   double heightAppBar = 100.0;
+
+  //Переменные для текстовых полей
+  late String userPizzaName, userPizzaPrice;
+
+  //Контроллеры для очистики текстовых полей
+  TextEditingController controllerNameTF = TextEditingController();
+  TextEditingController controllerPriceTF = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,6 +109,10 @@ class _AddPizzaState extends State<AddPizza> {
                                   child: SizedBox(
                                     height: 34,
                                     child: TextField(
+                                      onChanged: (String value) {
+                                        userPizzaName = value;
+                                      },
+                                      controller: controllerNameTF,
                                       textAlignVertical: TextAlignVertical.top,
                                       decoration: InputDecoration(
                                         border: const OutlineInputBorder(),
@@ -106,7 +120,7 @@ class _AddPizzaState extends State<AddPizza> {
                                           icon: const Icon(Icons.clear),
                                           iconSize: 20,
                                           onPressed: () {
-
+                                            controllerNameTF.clear();
                                           },
                                         ),
                                       ),
@@ -123,6 +137,10 @@ class _AddPizzaState extends State<AddPizza> {
                                   child: SizedBox(
                                     height: 34,
                                     child: TextField(
+                                      onChanged: (String value) {
+                                        userPizzaPrice = value;
+                                      },
+                                      controller: controllerPriceTF,
                                       textAlignVertical: TextAlignVertical.top,
                                       decoration: InputDecoration(
                                         border: const OutlineInputBorder(),
@@ -130,7 +148,7 @@ class _AddPizzaState extends State<AddPizza> {
                                           icon: const Icon(Icons.clear),
                                           iconSize: 20,
                                           onPressed: () {
-
+                                            controllerPriceTF.clear();
                                           },
                                         ),
                                       ),
@@ -147,6 +165,36 @@ class _AddPizzaState extends State<AddPizza> {
                 );
               }
           ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: const EdgeInsets.all(15),
+              width: double.infinity,
+              height: 60,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.pinkAccent,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                ),
+                child: const Text('Save',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => PizzaMarket(
+                          userPizzaName: userPizzaName,
+                          userPizzaPrice: userPizzaPrice,
+                        ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          )
         ],
       ),
     );

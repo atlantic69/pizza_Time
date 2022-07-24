@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class PizzaMarket extends StatefulWidget {
-  const PizzaMarket({Key? key}) : super(key: key);
+
+  String? userPizzaName, userPizzaPrice;
+
+  PizzaMarket(
+      {Key? key, required this.userPizzaName, required this.userPizzaPrice})
+      : super(key: key);
 
   @override
   State<PizzaMarket> createState() => _PizzaMarket();
@@ -10,14 +15,15 @@ class PizzaMarket extends StatefulWidget {
 class _PizzaMarket extends State<PizzaMarket> {
 
   double heightAppBar = 150.0;
+
   List menu = [];
   List price = [];
 
   @override
   void initState() {
     super.initState();
-    menu.addAll(['Aloha', 'Four season', 'Don Beacon']);
-    price.addAll(['8', '10', '6']);
+    menu.addAll(['Aloha', 'Four season', 'Don Beacon', widget.userPizzaName]);
+    price.addAll(['8', '10', '6', widget.userPizzaPrice]);
   }
 
   @override
@@ -123,64 +129,3 @@ class _PizzaMarket extends State<PizzaMarket> {
     );
   }
 }
-
-                /*Column(
-                  children: [
-                    Text(price[index],
-                      style: const TextStyle(
-                          color: Colors.pinkAccent,
-                      ),),
-                  ],
-                ),*/
-
-/*
-                    SizedBox (
-                      height: 70,
-                      child: Center (
-                        child: ListTile(
-                          leading: const Image (
-                            image: AssetImage('assets/pizza.jpeg'),
-                          ),
-                          title: Text(menu[index],
-                            style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                          ),),
-                          trailing: const Icon(
-                            Icons.attach_money,
-                            color: Colors.pinkAccent,
-                          ),
-                        ),
-                      ),
-                    ),
- */
-
-/*
-          return Card(
-            elevation: 30,
-            shadowColor: Color.fromARGB(40, 70, 70, 250),
-            margin: EdgeInsets.all(15),
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-            ),
-            child: SizedBox (
-              height: 70,
-              child: Center (
-                child: ListTile(
-                  leading: const Image (
-                    image: AssetImage('assets/pizza.jpeg'),
-                  ),
-                  title: Text(menu[index], style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),),
-                  trailing: IconButton(
-                    icon: const Icon(
-                      Icons.attach_money,
-                      color: Colors.pinkAccent,
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
-              ),
-            ),
-          );
- */
