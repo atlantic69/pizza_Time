@@ -31,7 +31,7 @@ class _AddPizzaState extends State<AddPizza> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bghead.jpg'),
+                image: AssetImage('bghead.jpg'),
                 fit: BoxFit.fitWidth,
                 opacity: 0.05,
               ),
@@ -182,7 +182,7 @@ class _AddPizzaState extends State<AddPizza> {
                     fontSize: 16,
                   ),),
                 onPressed: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
                         builder: (_) => PizzaMarket(

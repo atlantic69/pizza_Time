@@ -16,14 +16,20 @@ class _PizzaMarket extends State<PizzaMarket> {
 
   double heightAppBar = 150.0;
 
-  List menu = [];
-  List price = [];
+  List menu = ['Aloha', 'Four season', 'Don Beacon'];
+  List price = ['8', '10', '6'];
 
   @override
   void initState() {
     super.initState();
-    menu.addAll(['Aloha', 'Four season', 'Don Beacon', widget.userPizzaName]);
-    price.addAll(['8', '10', '6', widget.userPizzaPrice]);
+    if (widget.userPizzaName == '' || widget.userPizzaPrice == ''){
+      menu;
+      price;
+    }
+    else{
+      menu.addAll([widget.userPizzaName]);
+      price.addAll([widget.userPizzaPrice]);
+    }
   }
 
   @override
@@ -39,7 +45,7 @@ class _PizzaMarket extends State<PizzaMarket> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bghead.jpg'),
+                image: AssetImage('bghead.jpg'),
                 fit: BoxFit.fitWidth,
                 opacity: 0.05,
               ),
