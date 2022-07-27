@@ -6,6 +6,23 @@ void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: ThemeData(
     scaffoldBackgroundColor: Colors.white,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      titleTextStyle: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 22,
+      ),
+      iconTheme: IconThemeData(
+        color: Colors.pinkAccent,
+      )
+    ),
+    cardTheme: const CardTheme(
+      elevation: 30,
+      shadowColor: Color.fromARGB(50, 70, 70, 250),
+      margin: EdgeInsets.all(15),
+    ),
   ),
   initialRoute: '/',
   routes: {

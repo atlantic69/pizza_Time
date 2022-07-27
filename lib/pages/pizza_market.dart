@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_time/elements/bgImageAppBar.dart';
 
 class PizzaMarket extends StatefulWidget {
 
@@ -14,8 +15,9 @@ class PizzaMarket extends StatefulWidget {
 
 class _PizzaMarket extends State<PizzaMarket> {
 
+  //Высота AppBar
   double heightAppBar = 150.0;
-
+  //Списки с названием и ценой пиццы
   List menu = ['Aloha', 'Four season', 'Don Beacon'];
   List price = ['8', '10', '6'];
 
@@ -39,46 +41,24 @@ class _PizzaMarket extends State<PizzaMarket> {
         preferredSize: Size.fromHeight(heightAppBar),
         child: AppBar(
           toolbarHeight: heightAppBar,
-          backgroundColor: Colors.white,
-          elevation: 0,
-
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('bghead.jpg'),
-                fit: BoxFit.fitWidth,
-                opacity: 0.05,
-              ),
-            ),
-          ),
-
-          title: const SizedBox (
-            child: Text('Pizza Market', style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),),
-          ),
-
+          flexibleSpace: BgImageAB(),
+          title: const Text('Pizza Market'),
           actions: [
             IconButton(
-              icon: const Icon (Icons.add_box),
-              iconSize: 30,
-              color: Colors.pinkAccent,
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/add');
               },
+              icon: const Icon(Icons.add_box),
+              iconSize: 30,
             ),
           ],
         ),
       ),
+
       body: ListView.builder(
         itemCount: menu.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
-            elevation: 30,
-            shadowColor: const Color.fromARGB(40, 70, 70, 250),
-            margin: const EdgeInsets.all(15),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),

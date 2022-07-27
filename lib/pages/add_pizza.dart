@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pizza_time/elements/bgImageAppBar.dart';
 import 'package:pizza_time/pages/pizza_market.dart';
 
 class AddPizza extends StatefulWidget {
@@ -10,6 +11,7 @@ class AddPizza extends StatefulWidget {
 
 class _AddPizzaState extends State<AddPizza> {
 
+  //Высота AppBar
   double heightAppBar = 100.0;
 
   //Переменные для текстовых полей
@@ -26,36 +28,17 @@ class _AddPizzaState extends State<AddPizza> {
         preferredSize: Size.fromHeight(heightAppBar),
         child: AppBar(
           toolbarHeight: heightAppBar,
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('bghead.jpg'),
-                fit: BoxFit.fitWidth,
-                opacity: 0.05,
-              ),
-            ),
-          ),
-
+          flexibleSpace: BgImageAB(),
+          title: const Text('Add pizza'),
           leading: Builder(
             builder: (BuildContext context) {
               return IconButton(
-                icon: const Icon(Icons.arrow_back_ios_new),
-                color: Colors.pinkAccent,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/');
                 },
+                icon: const Icon(Icons.arrow_back_ios_new),
               );
             },
-          ),
-
-          title: const SizedBox (
-            child: Text('Add pizza', style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
-            ),),
           ),
         ),
       ),
@@ -67,9 +50,6 @@ class _AddPizzaState extends State<AddPizza> {
               itemCount: 1,
               itemBuilder: (BuildContext context, int index) {
                 return Card(
-                  elevation: 30,
-                  shadowColor: const Color.fromARGB(50, 70, 70, 250),
-                  margin: const EdgeInsets.all(15),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                   ),
